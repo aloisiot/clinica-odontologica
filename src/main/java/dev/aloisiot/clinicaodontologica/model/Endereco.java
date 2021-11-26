@@ -11,13 +11,13 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Rua nao pode ser nulo")
     private String rua;
 
-    @NotNull
+    @NotNull(message = "Bairro nao pode ser nulo")
     private String bairro;
 
-    @NotNull
+    @NotNull(message = "Cidade nao pode ser nulo")
     private String cidade;
 
     private Integer numero;

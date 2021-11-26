@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 public abstract class TemplateController<T>
         implements ICrudController<T> {
@@ -36,11 +35,7 @@ public abstract class TemplateController<T>
     @Override
     @GetMapping("/{id}")
     public ResponseEntity<T> buscarPorId(@PathVariable Long id) {
-        Optional response = service.buscarPorId(id);
-        if(response.isPresent())
-            return ResponseEntity.ok((T) response.get());
-        else
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        return ResponseEntity.ok(service.buscarPorId(id).orElse(null));
     }
 
     @Override
@@ -49,10 +44,9 @@ public abstract class TemplateController<T>
         return ResponseEntity.ok(service.buscarTodos());
     }
 
-
     @Override
     @DeleteMapping("/{id}")
-    public ResponseEntity excluir(@PathVariable Long id) {
+    public ResponseEntity excluirPorId(@PathVariable Long id) {
         if(service.excluir(id))
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 

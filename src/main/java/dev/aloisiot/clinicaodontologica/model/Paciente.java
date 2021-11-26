@@ -13,13 +13,15 @@ public class Paciente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Nome nao pode ser nulo")
+    @Size(min = 2)
     private String nome;
 
-    @NotNull
+    @NotNull(message = "Sobrenome nao pode ser nulo")
+    @Size(min = 2)
     private String sobrenome;
 
-    @NotNull
+    @NotNull(message = "RG nao pode ser nulo")
     @Size(min = 8, max = 8)
     private String rg;
 

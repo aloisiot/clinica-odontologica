@@ -2,6 +2,7 @@ package dev.aloisiot.clinicaodontologica.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -12,13 +13,14 @@ public class Dentista {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Nome nao pode ser nulo")
+    @Size(min = 2)
     private String nome;
 
-    @NotNull
+    @NotNull(message = "Sobrenome nao pode ser nulo")
     private String sobrenome;
 
-    @NotNull
+    @NotNull(message = "Matricula nao pode ser nulo")
     private String matricula;
 
     @Temporal(TemporalType.TIMESTAMP)

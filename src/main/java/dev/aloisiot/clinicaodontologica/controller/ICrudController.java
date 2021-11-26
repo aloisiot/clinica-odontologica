@@ -11,5 +11,5 @@ public interface ICrudController<T> {
     ResponseEntity atualizar(T t);
     ResponseEntity<T> buscarPorId(Long id);
     ResponseEntity<List<T>> buscarTodos();
-    ResponseEntity excluir(Long id);
+    ResponseEntity excluirPorId(Long id);
 }

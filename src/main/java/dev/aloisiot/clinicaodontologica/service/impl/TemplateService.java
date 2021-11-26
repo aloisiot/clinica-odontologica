@@ -40,7 +40,7 @@ public abstract class TemplateService<T>
         try {
             repository.delete(repository.findById(id).get());
             return true;
-        } catch (IllegalArgumentException e){
+        } catch (Exception e){
             return false;
         }
     }
