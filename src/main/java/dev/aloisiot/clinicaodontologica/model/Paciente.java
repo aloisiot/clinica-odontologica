@@ -1,6 +1,8 @@
 package dev.aloisiot.clinicaodontologica.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -10,12 +12,21 @@ public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
     private String nome;
+
+    @NotNull
     private String sobrenome;
-    private Date dataCadastro;
+
+    @NotNull
+    @Size(min = 8, max = 8)
     private String rg;
 
-    @OneToOne
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataCadastro = new Date(System.currentTimeMillis());
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id")
     Endereco endereco;
 

@@ -18,10 +18,19 @@ public abstract class TemplateController<T>
         this.service = service;
     }
 
+    public IService<T> getService() {
+        return service;
+    }
+
     @Override
     @PostMapping
     public ResponseEntity criar(@RequestBody T t) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.criar(t));
+    }
+
+    @Override
+    public ResponseEntity atualizar(T t) {
+        return ResponseEntity.ok(service.atualizar(t));
     }
 
     @Override

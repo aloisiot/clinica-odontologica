@@ -1,6 +1,7 @@
 package dev.aloisiot.clinicaodontologica.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -10,12 +11,20 @@ public class Dentista {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
-    private String sobrenome;
-    private Date dataCadastro;
-    private Long matricula;
 
-    @OneToOne
+    @NotNull
+    private String nome;
+
+    @NotNull
+    private String sobrenome;
+
+    @NotNull
+    private String matricula;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataCadastro = new Date(System.currentTimeMillis());
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id")
     Endereco endereco;
 
@@ -59,11 +68,11 @@ public class Dentista {
         this.dataCadastro = dataCadastro;
     }
 
-    public Long getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(Long matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 }

@@ -21,6 +21,11 @@ public abstract class TemplateService<T>
     }
 
     @Override
+    public T atualizar(T t) {
+        return (T) repository.save(t);
+    }
+
+    @Override
     public Optional<T> buscarPorId(Long id) {
         return repository.findById(id);
     }
