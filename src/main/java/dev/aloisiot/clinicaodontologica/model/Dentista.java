@@ -20,7 +20,7 @@ public class Dentista {
     @NotNull(message = "Sobrenome nao pode ser nulo")
     private String sobrenome;
 
-    @NotNull(message = "Matricula nao pode ser nulo")
+//    @NotNull(message = "Matricula nao pode ser nulo")
     private String matricula;
 
     @Temporal(TemporalType.TIMESTAMP)
