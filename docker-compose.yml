@@ -10,7 +10,7 @@ services:
     depends_on:
       - mysql_db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/alterar?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/db_clinica_odontologica?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false
 
   mysql_db:
     image: "mysql:8.0"
@@ -19,8 +19,8 @@ services:
       - "3307:3306"
     environment:
       MYSQL_DATABASE: alterar
-      MYSQL_USER: root
-      MYSQL_ROOT_PASSWORD: senhadobanco
+      MYSQL_USER: clinica-persist
+      MYSQL_ROOT_PASSWORD: 4dm1nWertvs/
     volumes:
       - db_mysql:/var/lib/mysql
     networks:
