@@ -1,8 +1,9 @@
 version: "3.7"
 services:
   springweb:
+    image: aloisiot/jenkins-test
     container_name: api-clinica-odontologica
-    build: .
+#    build: .
     ports:
       - "8081:8080"
     networks:
@@ -19,8 +20,8 @@ services:
       - "3307:3306"
     environment:
       MYSQL_DATABASE: alterar
-      MYSQL_USER: clinica-persist
-      MYSQL_ROOT_PASSWORD: 4dm1nWertvs/
+      MYSQL_USER: user_test
+      MYSQL_ROOT_PASSWORD: test123
     volumes:
       - db_mysql:/var/lib/mysql
     networks:
