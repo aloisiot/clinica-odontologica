@@ -7,4 +7,4 @@ Aplicação desenvolvida em Java para a disciplina Back End i, consiste em uma R
  - MySQL: Banco de dados relacional escolhido para persistir os dados;
 ## Endpoints
 - Paciente:
-  -  
+    - /pacienteId/{pacienteId}/dentistaId/{dentistaId} -> Cadastra uma nova consulta usando o ID do paciente e O ID do dentista expecificados no path da URL; 
