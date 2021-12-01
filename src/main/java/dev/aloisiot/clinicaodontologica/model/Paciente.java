@@ -1,3 +1,5 @@
+
+
 package dev.aloisiot.clinicaodontologica.model;
 
 import javax.persistence.*;
@@ -21,7 +23,7 @@ public class Paciente {
     @Size(min = 2)
     private String sobrenome;
 
-    @NotNull(message = "RG nao pode ser nulo")
+    //    @NotNull(message = "RG nao pode ser nulo")
     @Size(min = 8, max = 8)
     private String rg;
 

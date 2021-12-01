@@ -28,7 +28,6 @@ public abstract class TemplateController<T>
     }
 
     @Override
-    @PutMapping
     public ResponseEntity atualizar(T t) {
         return ResponseEntity.ok(service.atualizar(t));
     }

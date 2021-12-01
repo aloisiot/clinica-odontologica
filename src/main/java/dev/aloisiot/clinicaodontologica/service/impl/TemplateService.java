@@ -15,6 +15,10 @@ public abstract class TemplateService<T>
         this.repository = repository;
     }
 
+    public JpaRepository<T, Long> getRepository() {
+        return repository;
+    }
+
     @Override
     public T criar(T t) {
         return (T) repository.save(t);
