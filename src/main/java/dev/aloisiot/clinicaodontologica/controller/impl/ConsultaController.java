@@ -30,8 +30,6 @@ public class ConsultaController extends TemplateController<Consulta>
 
     @PostMapping("/pacienteId/{pacienteId}/dentistaId/{dentistaId}")
     public ResponseEntity criar(@PathVariable Long pacienteId, @PathVariable Long dentistaId) {
-        System.out.println(pacienteId);
-        System.out.println(dentistaId);
         Consulta consulta = new Consulta();
         consulta.setPaciente(pacienteService.buscarPorId(pacienteId).get());
         consulta.setDentista(dentistaService.buscarPorId(dentistaId).get());
